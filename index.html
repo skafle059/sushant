@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day, My Love ❤️</title>
+    
+    <!-- Google Fonts - Romantic Cursive + Elegant Serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ================================
+           GLOBAL STYLES & RESET
+        ================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Romantic Color Palette */
+            --blush-pink: #FFB6C1;
+            --deep-red: #C41E3A;
+            --rose-gold: #B76E79;
+            --soft-white: #FFF5F7;
+            --cream: #FFF0F3;
+            --dark-text: #4A2C2A;
+            --gold-accent: #D4AF37;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FFE5EC 0%, #FFC1CC 50%, #FFB6C1 100%);
+            color: var(--dark-text);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* ================================
+           FLOATING HEARTS BACKGROUND
+        ================================ */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 182, 193, 0.6);
+            animation: floatUp 15s infinite ease-in;
+        }
+        
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; font-size: 25px; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 2s; font-size: 18px; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 4s; font-size: 22px; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 1s; font-size: 20px; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 3s; font-size: 24px; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 5s; font-size: 19px; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 2.5s; font-size: 21px; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 4.5s; font-size: 23px; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 1.5s; font-size: 20px; }
+        .heart:nth-child(10) { left: 15%; animation-delay: 3.5s; font-size: 22px; }
+        
+        @keyframes floatUp {
+            0% {
+                bottom: -10%;
+                opacity: 0;
+                transform: translateX(0) rotate(0deg);
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                bottom: 110%;
+                opacity: 0;
+                transform: translateX(100px) rotate(360deg);
+            }
+        }
+        
+        /* ================================
+           HERO SECTION
+        ================================ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            z-index: 2;
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.3), rgba(255, 192, 203, 0.2));
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: var(--deep-red);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .hero .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--rose-gold);
+            margin-bottom: 3rem;
+            font-style: italic;
+            opacity: 0;
+            animation: fadeIn 2s ease-out 0.5s forwards;
+        }
+        
+        .hero-heart {
+            font-size: 4rem;
+            color: var(--deep-red);
+            animation: heartbeat 1.5s ease-in-out infinite;
+            margin: 2rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--deep-red), var(--rose-gold));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(196, 30, 58, 0.3);
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(196, 30, 58, 0.4);
+        }
+        
+        /* ================================
+           GLASSMORPHISM CARD STYLE
+        ================================ */
+        .section {
+            position: relative;
+            padding: 5rem 2rem;
+            z-index: 2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* ================================
+           LOVE MESSAGE SECTION
+        ================================ */
+        .love-message {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+        
+        .love-message.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .love-message h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--deep-red);
+            margin-bottom: 2rem;
+        }
+        
+        .love-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            line-height: 2;
+            color: var(--dark-text);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 2rem;
+        }
+        
+        .love-letter p {
+            margin-bottom: 1.5rem;
+            text-indent: 2rem;
+        }
+        
+        .signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--deep-red);
+            text-align: right;
+            margin-top: 2rem;
+        }
+        
+        /* ================================
+           MEMORY GALLERY SECTION
+        ================================ */
+        .gallery {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+        
+        .gallery.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gallery h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--deep-red);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(196, 30, 58, 0.3);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.3), rgba(255, 182, 193, 0.3));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
+        /* Placeholder style for images */
+        .gallery-item {
+            background: linear-gradient(135deg, #FFE5EC, #FFC1CC);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rose-gold);
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        /* ================================
+           REASONS SECTION
+        ================================ */
+        .reasons {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+        
+        .reasons.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reasons h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--deep-red);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .reason-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid rgba(255, 182, 193, 0.5);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .reason-card.animate {
+            animation: floatIn 0.8s ease-out forwards;
+        }
+        
+        .reason-card:nth-child(1) { animation-delay: 0.1s; }
+        .reason-card:nth-child(2) { animation-delay: 0.2s; }
+        .reason-card:nth-child(3) { animation-delay: 0.3s; }
+        .reason-card:nth-child(4) { animation-delay: 0.4s; }
+        .reason-card:nth-child(5) { animation-delay: 0.5s; }
+        .reason-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        .reason-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(196, 30, 58, 0.3);
+            border-color: var(--deep-red);
+        }
+        
+        .reason-number {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: var(--deep-red);
+            margin-bottom: 1rem;
+        }
+        
+        .reason-text {
+            font-size: 1.1rem;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        /* ================================
+           FINAL ROMANTIC SECTION
+        ================================ */
+        .final-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(255, 182, 193, 0.2));
+        }
+        
+        .final-message {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            color: var(--deep-red);
+            max-width: 800px;
+            margin-bottom: 3rem;
+            animation: glow 3s ease-in-out infinite alternate;
+            line-height: 1.6;
+        }
+        
+        .final-heart {
+            font-size: 5rem;
+            color: var(--deep-red);
+            animation: heartbeat 1.5s ease-in-out infinite;
+            margin: 2rem 0;
+            filter: drop-shadow(0 0 20px rgba(196, 30, 58, 0.5));
+        }
+        
+        /* ================================
+           RESPONSIVE DESIGN
+        ================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(196, 30, 58, 0.5),
+                             0 0 20px rgba(196, 30, 58, 0.3);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(196, 30, 58, 0.8),
+                             0 0 30px rgba(196, 30, 58, 0.5),
+                             0 0 40px rgba(196, 30, 58, 0.3);
+            }
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.05); }
+        }
+        
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ================================
+           RESPONSIVE DESIGN
+        ================================ */
+        @media (max-width: 768px) {
+            .section {
+                padding: 3rem 1rem;
+            }
+            
+            .glass-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .love-letter {
+                padding: 1rem;
+            }
+            
+            .gallery-grid,
+            .reasons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ================================
+           SCROLL INDICATOR
+        ================================ */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator::before {
+            content: '↓';
+            font-size: 2rem;
+            color: var(--deep-red);
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts">
+        <div class="heart">❤️</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">❤️</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">❤️</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">❤️</div>
+    </div>
+    
+    <!-- ================================
+         HERO SECTION
+    ================================ -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Happy Valentine's Day, Bigya ❤️</h1>
+            <!-- CUSTOMIZE: Change the subtitle to your personal message -->
+            <p class="subtitle">To my Babe — You are the poetry my heart has been writing forever</p>
+            <div class="hero-heart">💖</div>
+            <!-- This button scrolls to the love message section -->
+            <a href="#love-message" class="btn" onclick="startMusic()">Open My Heart</a>
+
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+    
+    <!-- ================================
+         LOVE MESSAGE SECTION
+    ================================ -->
+    <section id="love-message" class="section">
+        <div class="container">
+            <div class="glass-card love-message">
+                <h2>To My Dearest Bigya</h2>
+                <div class="love-letter">
+                    <!-- CUSTOMIZE: Replace this with your personal love letter -->
+                    <p>
+                        My Dearest babe, words seem to fall short when I try to express what you mean to me. 
+                        You are not just a part of my life; you are the essence of everything beautiful in it. 
+                        From the moment you walked into my world, everything changed. The colors became brighter, 
+                        the music sweeter, and my heart found its home in you, Bigya.
+                    </p>
+                    <p>
+                        Every morning I wake up grateful for another day to love you, to see your smile, 
+                        to hear your laugh that makes my world complete. You have this magical way of making 
+                        ordinary moments extraordinary, of turning simple days into cherished memories. 
+                        Your kindness, your strength, your beautiful soul – they inspire me every single day.
+                    </p>
+                    <p>
+                        I promise to love you in the sunshine and in the storms, to stand by your side through 
+                        every season of life. You deserve all the happiness in the world, and I will spend my 
+                        lifetime trying to give you just that. Thank you for being you, for loving me, 
+                        and for making every day feel like Valentine's Day.
+                    </p>
+                    <p>
+                        You are my today, my tomorrow, and all my forevers. I love you more than words could 
+                        ever say, more than actions could ever show. You are my everything.
+                    </p>
+                    <!-- CUSTOMIZE: Change the signature to your name -->
+                    <div class="signature">Forever Yours ❤️</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ================================
+         MEMORY GALLERY SECTION
+    ================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="glass-card gallery">
+                <h2>Our Beautiful Memories 📸</h2>
+                <div class="gallery-grid">
+                    <!-- CUSTOMIZE: Replace these divs with <img src="your-photo.jpg" alt="Description"> -->
+                    <!-- Example: <img src="photo1.jpg" alt="Our first date"> -->
+                    <div class="gallery-item">
+                        <img src="img1.jpeg" alt="">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img2.jpeg" alt="">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img3.jpeg" alt="">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img4.jpeg" alt="">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img5.jpeg" alt="">
+                    </div>
+                    <div class="gallery-item">
+                      <img src="img6.jpeg" alt="">
+                    </div>
+                    <div class="gallery-item">
+                       <img src="img7.jpeg" alt="">
+                    </div>
+                    <div class="gallery-item">
+                      <img src="img8.jpeg" alt="">
+                    </div>
+                    <div class="gallery-item">
+                      <img src="img9.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ================================
+         REASONS I LOVE YOU SECTION
+    ================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="glass-card reasons">
+                <h2>Why I Love You 💝</h2>
+                <div class="reasons-grid">
+                    <!-- CUSTOMIZE: Change these reasons to your personal reasons -->
+                    <div class="reason-card">
+                        <div class="reason-number">1</div>
+                        <p class="reason-text">Your smile lights up my entire world and makes even the darkest days beautiful</p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="reason-number">2</div>
+                        <p class="reason-text">The way you care for everyone around you shows the beautiful soul you have</p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="reason-number">3</div>
+                        <p class="reason-text">Your laugh is my favorite sound in the entire universe</p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="reason-number">4</div>
+                        <p class="reason-text">You make me want to be a better person every single day</p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="reason-number">5</div>
+                        <p class="reason-text">The way you understand me without words is pure magic</p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="reason-number">6</div>
+                        <p class="reason-text">Because loving you is the easiest and most natural thing I've ever done</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ================================
+         FINAL ROMANTIC SECTION
+    ================================ -->
+    <section class="final-section">
+        <p class="final-message">
+            Bigya, my babe — You are my today, my tomorrow, and my forever. 
+            Every heartbeat whispers your name. 
+            I love you beyond measure. ✨
+        </p>
+        <div class="final-heart">💖</div>
+        <!-- CUSTOMIZE: Change button text or link if desired -->
+        <a href="#" class="btn" onclick="alert('I Love You More Than Anything! ❤️'); return false;">
+            I Love You Forever ❤️
+        </a>
+    </section>
+    
+    <!-- Background Music - Perfect Valentine's Song -->
+    <!-- Using "Perfect" by Ed Sheeran - Classic romantic song -->
+    <audio id="bgMusic" autoplay loop>
+        <source src="romantic-song.mp3" type="audio/mpeg">
+        <!-- Romantic piano melody that plays automatically -->
+    </audio>
+    
+    <!-- ================================
+         JAVASCRIPT FOR INTERACTIONS
+    ================================ -->
+    <script>
+        // Background music autoplay handler
+        const bgMusic = document.getElementById('bgMusic');
+        let musicStarted = false;
+        
+        // Function to start music
+        const startMusic = () => {
+            if (!musicStarted) {
+                bgMusic.play().then(() => {
+                    musicStarted = true;
+                }).catch(e => {
+                    // Silently handle - music will play on interaction
+                });
+            }
+        };
+        
+        // Try to autoplay on load
+        window.addEventListener('load', startMusic);
+        
+        // If autoplay blocked, play on ANY user interaction (click, scroll, touch)
+        const enableMusicOnInteraction = () => {
+            startMusic();
+        };
+        
+        // Listen for various user interactions
+        document.addEventListener('click', enableMusicOnInteraction, { once: true });
+        document.addEventListener('scroll', enableMusicOnInteraction, { once: true });
+        document.addEventListener('touchstart', enableMusicOnInteraction, { once: true });
+        document.addEventListener('keydown', enableMusicOnInteraction, { once: true });
+        document.addEventListener("DOMContentLoaded", function() {
+    const bgMusic = document.getElementById("bgMusic");
+
+    bgMusic.play().catch(() => {
+        // If autoplay is blocked, play on first click
+        document.addEventListener("click", () => {
+            bgMusic.play();
+        }, { once: true });
+    });
+});
+
+        // Smooth scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animate reason cards one by one
+                    if (entry.target.classList.contains('reasons')) {
+                        const reasonCards = entry.target.querySelectorAll('.reason-card');
+                        reasonCards.forEach(card => {
+                            card.classList.add('animate');
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections that need animation
+        document.querySelectorAll('.love-message, .gallery, .reasons').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Hide scroll indicator after first scroll
+        window.addEventListener('scroll', function() {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (window.scrollY > 100 && scrollIndicator) {
+                scrollIndicator.style.opacity = '0';
+            }
+        }, { once: false });
+    </script>
+</body>
+</html>
